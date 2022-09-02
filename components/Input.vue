@@ -1,16 +1,9 @@
 <template>
   <form>
     <div class="flex">
-      <label
-        for="search-dropdown"
-        class="mb-2 text-sm font-medium text-gray-300 text-gray-900 sr-only"
-        >Your Email</label
-      >
-
       <div class="relative w-full">
         <input
           type="password"
-          id="search-dropdown"
           class="
             p-2.5
             w-full
