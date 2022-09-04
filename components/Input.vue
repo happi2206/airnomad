@@ -1,8 +1,9 @@
 <template>
   <form>
     <div class="flex">
-      <div class="relative w-full">
+      <form class="relative w-full" @submit.prevent="handleSubmit">
         <input
+          v-model.trim="input"
           type="password"
           class="
             p-2.5
@@ -37,13 +38,33 @@
         >
           Submit
         </button>
-      </div>
+      </form>
     </div>
   </form>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      input: "",
+      isSubmitting: false,
+    };
+  },
+  methods: {
+    handleSubmit() {
+      this.isSubmitting = true;
+      this.input = this.input.toLowerCase();
+      const words = ["frank", "frank ocean", "ocean"];
+      const matched = words.some((substring) => this.input.includes(substring));
+      if (matched) {
+        localStorage.isFriend = true;
+        this.$store.commit("store/SET_STATE");
+        this.$router.push("illustrations");
+      }
+    },
+  },
+};
 </script>
 
 <style>

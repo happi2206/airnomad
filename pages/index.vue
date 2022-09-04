@@ -14,7 +14,7 @@
 
         <div class="w-11/12 pt-14">
           <p class="">
-            To get access to see this, you must be a friend of Ebi. So for we to
+            To get access to see this, you must be a friend of Ebi. So for us to
             know if you are Ebi’s friend please answer the question below.
           </p>
 
