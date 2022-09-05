@@ -27,7 +27,7 @@
             right-0
             py-2.5
             px-3
-            text-sm
+            text-base
             font-medium
             text-white
             bg-main
