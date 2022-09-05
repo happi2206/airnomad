@@ -1,15 +1,30 @@
 <template>
   <div class="px-10 py-10 md:px-20">
+    <SuccessBanner v-if="showBanner" />
     <Navigation />
 
-    <Transition name="bounce-enter">
+    <Transition name="slide-bottom">
       <Nuxt />
     </Transition>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      showBanner: false,
+    };
+  },
+  created() {
+    this.$nuxt.$on("success", () => {
+      this.showBanner = true;
+    });
+    this.$nuxt.$on("closeBanner", () => {
+      this.showBanner = false;
+    });
+  },
+};
 </script>
 
 <style>

@@ -38,6 +38,12 @@
         >
           Submit
         </button>
+
+        <div class="py-2">
+          <p v-if="isFalse" class="text-xs text-red-500">
+            oops. you entered {{ input }}. that is not correct. hint: 🌊
+          </p>
+        </div>
       </form>
     </div>
   </form>
@@ -48,19 +54,27 @@ export default {
   data() {
     return {
       input: "",
-      isSubmitting: false,
+      isFalse: false,
     };
   },
   methods: {
     handleSubmit() {
-      this.isSubmitting = true;
       this.input = this.input.toLowerCase();
       const words = ["frank", "frank ocean", "ocean"];
       const matched = words.some((substring) => this.input.includes(substring));
       if (matched) {
+        this.$nuxt.$emit("success");
         localStorage.isFriend = true;
         this.$store.commit("store/SET_STATE");
-        this.$router.push("illustrations");
+
+        setTimeout(() => {
+          this.$router.push("illustrations");
+        }, "500");
+      } else {
+        this.isFalse = true;
+        setTimeout(() => {
+          this.isFalse = false;
+        }, "2500");
       }
     },
   },
