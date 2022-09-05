@@ -9,7 +9,7 @@
             p-2.5
             w-full
             z-20
-            text-sm text-gray-900
+            text-base text-gray-900
             bg-gray-50
             border
             focus:ring-0 focus:outline-none focus:border-main
